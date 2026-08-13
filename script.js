@@ -26,6 +26,23 @@ const projects = [
   },
 ];
 
+const blogPosts = [
+  {
+    title: "My Journey Into Web Development",
+    date: "August 2026",
+    description:
+      "What I learned while building my first responsive websites and moving from HTML and CSS toward JavaScript.",
+    link: "#",
+  },
+
+  {
+    title: "What I'm Learning in My Second Year of CSE",
+    date: "August 2026",
+    description:
+      "A look at what I'm currently learning, the technologies I'm exploring, and what I'm building.",
+    link: "#",
+  },
+];
 // =========================
 // Mobile Navigation
 // =========================
@@ -186,6 +203,50 @@ function updateActiveFilter(activeButton) {
 }
 
 // =========================
+// Blog rendering function
+// =========================
+function displayBlogPosts(postList) {
+  const blogGrid = document.querySelector(".blog-grid");
+
+  blogGrid.innerHTML = "";
+
+  postList.forEach(displayBlogPost);
+
+  function displayBlogPost(post) {
+    const blogCard = document.createElement("article");
+
+    blogCard.classList.add("blog-card");
+
+    blogCard.innerHTML = `
+            <div class="blog-content">
+
+                <span class="blog-date">
+                    ${post.date}
+                </span>
+
+                <h3>
+                    ${post.title}
+                </h3>
+
+                <p>
+                    ${post.description}
+                </p>
+
+                <a
+                    href="${post.link}"
+                    class="read-more"
+                >
+                    Read Article →
+                </a>
+
+            </div>
+        `;
+
+    blogGrid.appendChild(blogCard);
+  }
+}
+
+// =========================
 // Run the Website
 // =========================
 
@@ -194,3 +255,5 @@ setupMobileMenu();
 displayProjects(projects);
 
 setupProjectFilters();
+
+displayBlogPosts(blogPosts);

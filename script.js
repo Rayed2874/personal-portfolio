@@ -25,6 +25,48 @@ function setupMobileMenu() {
 }
 
 // =========================
+// Active Navigation
+// =========================
+
+function setupActiveNavigation() {
+  const navItems = document.querySelectorAll(".nav-links a");
+  const sections = document.querySelectorAll("main section");
+
+  function updateActiveNavigation() {
+    let currentSection = "";
+
+    sections.forEach(checkSection);
+
+    function checkSection(section) {
+      const sectionTop = section.offsetTop;
+
+      const sectionHeight = section.offsetHeight;
+
+      if (
+        window.scrollY >= sectionTop - 200 &&
+        window.scrollY < sectionTop + sectionHeight - 200
+      ) {
+        currentSection = section.getAttribute("id");
+      }
+    }
+
+    navItems.forEach(updateNavItem);
+
+    function updateNavItem(item) {
+      item.classList.remove("active");
+
+      if (item.getAttribute("href") === "#" + currentSection) {
+        item.classList.add("active");
+      }
+    }
+  }
+
+  window.addEventListener("scroll", updateActiveNavigation);
+
+  updateActiveNavigation();
+}
+
+// =========================
 // Display Projects
 // =========================
 
@@ -188,7 +230,7 @@ function displayBlogPosts(postList) {
                 </p>
 
                 <a
-                    href="${post.link}"
+                    href="article.html?id=${post.id}"
                     class="read-more"
                 >
                     Read Article →
@@ -212,3 +254,5 @@ displayProjects(projects);
 setupProjectFilters();
 
 displayBlogPosts(blogPosts);
+
+setupActiveNavigation();

@@ -25,12 +25,30 @@ function displayArticle() {
 
   if (article === undefined) {
     articleContainer.innerHTML = `
-            <h1>Article not found</h1>
+        <div class="article-not-found">
+
+            <span class="article-error-code">
+                404
+            </span>
+
+            <h1>
+                Article Not Found
+            </h1>
 
             <p>
-                The article you're looking for doesn't exist.
+                The article you're looking for doesn't exist
+                or may have been moved.
             </p>
-        `;
+
+            <a
+                href="index.html#blog"
+                class="btn btn-primary"
+            >
+                Back to Blog
+            </a>
+
+        </div>
+    `;
 
     return;
   }

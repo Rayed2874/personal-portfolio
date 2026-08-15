@@ -5,20 +5,48 @@
 #blog-article {
   max-width: 800px;
   margin: 80px auto;
+  padding: 0 5%;
 }
+
+/* Article header */
 
 .article-header {
   margin-bottom: 50px;
+  padding-bottom: 30px;
+
+  border-bottom: 1px solid var(--color-border);
+}
+
+.article-header .blog-date {
+  display: block;
+
+  color: var(--color-accent);
+
+  font-size: 14px;
+  font-weight: 600;
+
+  margin-bottom: 16px;
 }
 
 .article-header h1 {
+  color: var(--color-text);
+
   font-size: 48px;
   line-height: 1.2;
-  margin-top: 12px;
 }
 
+/* Article content */
+
 .article-content {
+  padding: 35px;
+
+  background-color: var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+
   color: var(--color-text-muted);
+
   font-size: 18px;
   line-height: 1.8;
 }
@@ -27,8 +55,99 @@
   margin-bottom: 24px;
 }
 
+.article-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Article headings */
+
 .article-content h2 {
   color: var(--color-text);
+
   font-size: 28px;
+
   margin: 40px 0 20px;
+}
+
+.article-content h3 {
+  color: var(--color-text);
+
+  font-size: 22px;
+
+  margin: 32px 0 16px;
+}
+
+/* Article links */
+
+.article-content a {
+  color: var(--color-accent);
+
+  text-decoration: underline;
+}
+
+.article-content a:hover {
+  color: var(--color-text);
+}
+@media (max-width: 768px) {
+  /* ...your existing responsive CSS... */
+
+  #blog-article {
+    margin: 50px auto;
+  }
+
+  .article-header h1 {
+    font-size: 36px;
+  }
+
+  .article-content {
+    padding: 24px;
+
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .article-content h2 {
+    font-size: 24px;
+  }
+}
+/* =========================
+   Article Not Found
+========================= */
+
+.article-not-found {
+  padding: 60px 35px;
+
+  background-color: var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+
+  text-align: center;
+}
+
+.article-error-code {
+  display: block;
+
+  color: var(--color-accent);
+
+  font-size: 64px;
+  font-weight: 700;
+
+  margin-bottom: 16px;
+}
+
+.article-not-found h1 {
+  color: var(--color-text);
+
+  font-size: 32px;
+
+  margin-bottom: 16px;
+}
+
+.article-not-found p {
+  color: var(--color-text-muted);
+
+  line-height: 1.6;
+
+  margin-bottom: 28px;
 }

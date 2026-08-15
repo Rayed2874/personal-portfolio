@@ -39,7 +39,6 @@ function setupActiveNavigation() {
 
     function checkSection(section) {
       const sectionTop = section.offsetTop;
-
       const sectionHeight = section.offsetHeight;
 
       if (
@@ -70,12 +69,28 @@ function setupActiveNavigation() {
 // Display Projects
 // =========================
 
-function displayProjects(projectList) {
-  const projectsGrid = document.querySelector(".projects-grid");
+function displayProjects(projectList, gridSelector) {
+  const projectsGrid = document.querySelector(gridSelector);
 
   projectsGrid.innerHTML = "";
 
+  if (projectList.length === 0) {
+    displayEmptyMessage();
+    return;
+  }
+
   projectList.forEach(displayProject);
+
+  function displayEmptyMessage() {
+    const emptyMessage = document.createElement("div");
+
+    emptyMessage.classList.add("empty-project-message");
+
+    emptyMessage.textContent =
+      "No projects in this category yet. More projects coming soon!";
+
+    projectsGrid.appendChild(emptyMessage);
+  }
 
   function displayProject(project) {
     const projectCard = document.createElement("article");
@@ -83,78 +98,61 @@ function displayProjects(projectList) {
     projectCard.classList.add("project-card");
 
     projectCard.innerHTML = `
-            <div class="project-image">
+      <div class="project-image">
+        <img
+          src="${project.image}"
+          alt="${project.title}"
+        >
+      </div>
 
-                <img
-                    src="${project.image}"
-                    alt="${project.title}"
-                >
+      <div class="project-content">
 
-            </div>
+        <h3>${project.title}</h3>
 
+        <p>${project.description}</p>
 
-            <div class="project-content">
+        <div class="project-tech">
+          ${project.technologies.map(createTechnologyTag).join("")}
+        </div>
 
-                <h3>${project.title}</h3>
+        <div class="project-links">
 
-                <p>
-                    ${project.description}
-                </p>
+          <a
+            href="${project.github}"
+            class="btn btn-secondary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
 
+          <a
+            href="${project.demo}"
+            class="btn btn-primary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Live Demo
+          </a>
 
-                <div class="project-tech">
+        </div>
 
-                    ${createTechnologyTags(project.technologies)}
-
-                </div>
-
-
-                <div class="project-links">
-
-                    <a
-                      href="${project.github}"
-                      class="btn btn-secondary"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                  >
-                      GitHub
-                  </a>
-
-                  <a
-                      href="${project.demo}"
-                      class="btn btn-primary"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                  >
-                      Live Demo
-                  </a>
-
-                </div>
-
-            </div>
-        `;
+      </div>
+    `;
 
     projectsGrid.appendChild(projectCard);
   }
 
-  function createTechnologyTags(technologies) {
-    let technologyHTML = "";
-
-    technologies.forEach(createTechnologyTag);
-
-    function createTechnologyTag(technology) {
-      technologyHTML += `
-                <span>${technology}</span>
-            `;
-    }
-
-    return technologyHTML;
+  function createTechnologyTag(technology) {
+    return `<span>${technology}</span>`;
   }
 }
 
 // =========================
-// Project Filters
+// Project Filtering
 // =========================
+
+let selectedCategory = "all";
 
 function setupProjectFilters() {
   const filterButtons = document.querySelectorAll(".filter-btn");
@@ -166,24 +164,39 @@ function setupProjectFilters() {
   }
 
   function handleFilterClick(event) {
-    const selectedCategory = event.currentTarget.dataset.filter;
+    selectedCategory = event.currentTarget.dataset.filter;
+
+    practiceProjectsVisible = 4;
 
     updateActiveFilter(event.currentTarget);
 
-    if (selectedCategory === "all") {
-      displayProjects(projects);
-
-      return;
-    }
-
-    const filteredProjects = projects.filter(filterProject);
-
-    displayProjects(filteredProjects);
-
-    function filterProject(project) {
-      return project.category === selectedCategory;
-    }
+    displayFilteredProjects();
   }
+}
+
+// =========================
+// Display Filtered Projects
+// =========================
+
+function displayFilteredProjects() {
+  let filteredProjects;
+  let filteredPracticeProjects;
+
+  if (selectedCategory === "all") {
+    filteredProjects = projects;
+    filteredPracticeProjects = practiceProjects;
+  } else {
+    filteredProjects = projects.filter(filterProject);
+    filteredPracticeProjects = practiceProjects.filter(filterProject);
+  }
+
+  function filterProject(project) {
+    return project.category === selectedCategory;
+  }
+
+  displayProjects(filteredProjects, ".projects-grid");
+
+  displayPracticeProjects(filteredPracticeProjects);
 }
 
 // =========================
@@ -203,8 +216,71 @@ function updateActiveFilter(activeButton) {
 }
 
 // =========================
-// Blog rendering function
+// Practice Projects
 // =========================
+
+let practiceProjectsVisible = 4;
+
+// =========================
+// Display Practice Projects
+// =========================
+
+function displayPracticeProjects(projectList) {
+  const visibleProjects = projectList.slice(0, practiceProjectsVisible);
+
+  displayProjects(visibleProjects, ".practice-projects-grid");
+
+  updateShowMoreButton(projectList);
+}
+
+// =========================
+// Show More / Show Less
+// =========================
+
+function setupPracticeProjectToggle() {
+  const showMoreButton = document.querySelector("#show-more-practice");
+
+  showMoreButton.addEventListener("click", togglePracticeProjects);
+
+  function togglePracticeProjects() {
+    const filteredPracticeProjects = getFilteredPracticeProjects();
+
+    if (practiceProjectsVisible >= filteredPracticeProjects.length) {
+      practiceProjectsVisible = 4;
+    } else {
+      practiceProjectsVisible += 4;
+    }
+
+    displayPracticeProjects(filteredPracticeProjects);
+  }
+}
+
+function getFilteredPracticeProjects() {
+  if (selectedCategory === "all") {
+    return practiceProjects;
+  }
+
+  return practiceProjects.filter(filterProject);
+
+  function filterProject(project) {
+    return project.category === selectedCategory;
+  }
+}
+
+function updateShowMoreButton(projectList) {
+  const showMoreButton = document.querySelector("#show-more-practice");
+
+  if (practiceProjectsVisible >= projectList.length) {
+    showMoreButton.textContent = "Show Less";
+  } else {
+    showMoreButton.textContent = "Show More";
+  }
+}
+
+// =========================
+// Blog Rendering
+// =========================
+
 function displayBlogPosts(postList) {
   const blogGrid = document.querySelector(".blog-grid");
 
@@ -218,33 +294,34 @@ function displayBlogPosts(postList) {
     blogCard.classList.add("blog-card");
 
     blogCard.innerHTML = `
-            <div class="blog-content">
+      <div class="blog-content">
 
-                <span class="blog-date">
-                    ${post.date}
-                </span>
+        <span class="blog-date">
+          ${post.date}
+        </span>
 
-                <h3>
-                    ${post.title}
-                </h3>
+        <h3>
+          ${post.title}
+        </h3>
 
-                <p>
-                    ${post.description}
-                </p>
+        <p>
+          ${post.description}
+        </p>
 
-                <a
-                    href="article.html?id=${post.id}"
-                    class="read-more"
-                >
-                    Read Article →
-                </a>
+        <a
+          href="article.html?id=${post.id}"
+          class="read-more"
+        >
+          Read Article →
+        </a>
 
-            </div>
-        `;
+      </div>
+    `;
 
     blogGrid.appendChild(blogCard);
   }
 }
+
 // =========================
 // Copy Email
 // =========================
@@ -254,7 +331,7 @@ function setupCopyEmail() {
   const emailAddress = document.querySelector("#email-address");
 
   function copyEmail() {
-    navigator.clipboard.writeText(emailAddress.textContent);
+    navigator.clipboard.writeText(emailAddress.textContent.trim());
 
     copyButton.textContent = "Copied!";
 
@@ -274,12 +351,16 @@ function setupCopyEmail() {
 
 setupMobileMenu();
 
-displayProjects(projects);
+displayProjects(projects, ".projects-grid");
 
-setupProjectFilters();
+displayPracticeProjects(practiceProjects);
 
 displayBlogPosts(blogPosts);
 
 setupActiveNavigation();
 
 setupCopyEmail();
+
+setupProjectFilters();
+
+setupPracticeProjectToggle();

@@ -5,6 +5,33 @@
 const projects = [
   {
     title: "Flappy Penguin",
+    description: "A CSS animation project...",
+    category: "web",
+    technologies: ["HTML", "CSS"],
+    image: "assets/images/flappy-penguin.png",
+    github: "#",
+    demo: "#",
+  },
+  
+  {
+    title: "To-Do List",
+    description: "A simple responsive to-do list interface...",
+    category: "web",
+    technologies: ["HTML", "CSS"],
+    image: "assets/images/to-do-list.png",
+    github: "#",
+    demo: "#",
+  },
+];
+
+
+// =========================
+// Practice Projects
+// =========================
+
+const practiceProjects = [
+  {
+    title: "Flappy Penguin",
     description:
       "A CSS animation project created while learning responsive web design.",
     category: "web",
@@ -23,6 +50,38 @@ const projects = [
     image: "assets/images/to-do-list.png",
     github: "https://github.com/Rayed2874/Responsive-Web-Design/tree/main/to-do-list",
     demo: "https://rayed2874.github.io/Responsive-Web-Design/to-do-list/",
+  },
+    {
+    title: "JavaScript Documentation",
+    description:
+      "A documentation-style webpage with a fixed navigation sidebar and structured technical content.",
+    category: "web",
+    technologies: ["HTML", "CSS"],
+    image: "assets/images/technical-documentation.png",
+    github: "https://github.com/Rayed2874/Responsive-Web-Design/tree/main/technical-documentation/",
+    demo: "https://rayed2874.github.io/Responsive-Web-Design/technical-documentation/",
+  },
+
+  {
+    title: "Magazine Layout",
+    description:
+      "A responsive magazine-style webpage focused on typography, multi-column layouts, and visual content organization.",
+    category: "web",
+    technologies: ["HTML", "CSS"],
+    image: "assets/images/magazine.png",
+    github: "https://github.com/Rayed2874/Responsive-Web-Design/tree/main/magazine",
+    demo: "https://rayed2874.github.io/Responsive-Web-Design/magazine/",
+  },
+
+  {
+    title: "Moon Orbit",
+    description:
+      "A CSS animation experiment demonstrating orbital motion using positioning, transforms, and animation.",
+    category: "web",
+    technologies: ["HTML", "CSS"],
+    image: "assets/images/moon-orbit.png",
+    github: "https://github.com/Rayed2874/Responsive-Web-Design/tree/main/moon-orbit",
+    demo: "https://rayed2874.github.io/Responsive-Web-Design/moon-orbit/",
   },
 ];
 

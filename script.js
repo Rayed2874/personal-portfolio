@@ -1,49 +1,4 @@
 // =========================
-// Projects Data
-// =========================
-
-const projects = [
-  {
-    title: "Flappy Penguin",
-    description:
-      "A CSS animation project created while learning responsive web design.",
-    category: "web",
-    technologies: ["HTML", "CSS"],
-    image: "assets/images/flappy-penguin.png",
-    github: "#",
-    demo: "#",
-  },
-
-  {
-    title: "To-Do List",
-    description:
-      "A simple responsive to-do list interface built while practicing frontend development.",
-    category: "web",
-    technologies: ["HTML", "CSS"],
-    image: "assets/images/to-do-list.png",
-    github: "#",
-    demo: "#",
-  },
-];
-
-const blogPosts = [
-  {
-    title: "My Journey Into Web Development",
-    date: "August 2026",
-    description:
-      "What I learned while building my first responsive websites and moving from HTML and CSS toward JavaScript.",
-    link: "#",
-  },
-
-  {
-    title: "What I'm Learning in My Second Year of CSE",
-    date: "August 2026",
-    description:
-      "A look at what I'm currently learning, the technologies I'm exploring, and what I'm building.",
-    link: "#",
-  },
-];
-// =========================
 // Mobile Navigation
 // =========================
 

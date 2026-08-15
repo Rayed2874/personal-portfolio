@@ -6,7 +6,7 @@ The website showcases my projects, technical skills, learning journey, and ways 
 
 ## 🌐 Live Website
 
-**[View Portfolio](YOUR_GITHUB_PAGES_LINK)**
+**[View Portfolio](https://rayed2874.github.io/personal-portfolio/)**
 
 ---
 

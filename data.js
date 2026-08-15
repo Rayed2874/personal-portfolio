@@ -9,8 +9,8 @@ const projects = [
     category: "web",
     technologies: ["HTML", "CSS"],
     image: "assets/images/flappy-penguin.png",
-    github: "#",
-    demo: "#",
+    github: "https://github.com/Rayed2874/Responsive-Web-Design/tree/main/flappy-penguin",
+    demo: "https://rayed2874.github.io/Responsive-Web-Design/flappy-penguin/",
   },
   
   {
@@ -19,8 +19,8 @@ const projects = [
     category: "web",
     technologies: ["HTML", "CSS"],
     image: "assets/images/to-do-list.png",
-    github: "#",
-    demo: "#",
+    github: "https://github.com/Rayed2874/Responsive-Web-Design/tree/main/to-do-list",
+    demo: "https://rayed2874.github.io/Responsive-Web-Design/to-do-list/",
   },
 ];
 

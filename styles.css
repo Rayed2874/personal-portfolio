@@ -165,10 +165,17 @@ section {
 
   padding: 14px 24px;
 
+  background: none;
+  border: none;
   border-radius: 8px;
+
+  color: var(--color-text);
 
   font-size: 16px;
   font-weight: 600;
+  font-family: inherit;
+
+  cursor: pointer;
 
   transition: 0.2s ease;
 }
@@ -182,7 +189,8 @@ section {
 }
 
 .btn-secondary {
-  border: 1px solid var(--color-border-light);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
 }
 
 .btn-secondary:hover {
@@ -625,6 +633,21 @@ footer {
 
   cursor: pointer;
 }
+.contact-email {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-top: 20px;
+}
+
+#email-address {
+  color: var(--color-text-muted);
+}
+
+#copy-email {
+  cursor: pointer;
+}
 
 /* =========================
    Responsive Design
@@ -746,3 +769,18 @@ footer {
     gap: 20px;
   }
 }
+
+/* #copy-email {
+  display: inline-block;
+  padding: 14px 24px;
+
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+
+  color: var(--color-text);
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+} */

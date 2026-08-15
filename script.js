@@ -112,19 +112,22 @@ function displayProjects(projectList) {
                 <div class="project-links">
 
                     <a
-                        href="${project.github}"
-                        class="btn btn-secondary"
-                    >
-                        GitHub
-                    </a>
+                      href="${project.github}"
+                      class="btn btn-secondary"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                  >
+                      GitHub
+                  </a>
 
-
-                    <a
-                        href="${project.demo}"
-                        class="btn btn-primary"
-                    >
-                        Live Demo
-                    </a>
+                  <a
+                      href="${project.demo}"
+                      class="btn btn-primary"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                  >
+                      Live Demo
+                  </a>
 
                 </div>
 
@@ -242,6 +245,28 @@ function displayBlogPosts(postList) {
     blogGrid.appendChild(blogCard);
   }
 }
+// =========================
+// Copy Email
+// =========================
+
+function setupCopyEmail() {
+  const copyButton = document.querySelector("#copy-email");
+  const emailAddress = document.querySelector("#email-address");
+
+  function copyEmail() {
+    navigator.clipboard.writeText(emailAddress.textContent);
+
+    copyButton.textContent = "Copied!";
+
+    setTimeout(resetButtonText, 2000);
+
+    function resetButtonText() {
+      copyButton.textContent = "Copy Email";
+    }
+  }
+
+  copyButton.addEventListener("click", copyEmail);
+}
 
 // =========================
 // Run the Website
@@ -256,3 +281,5 @@ setupProjectFilters();
 displayBlogPosts(blogPosts);
 
 setupActiveNavigation();
+
+setupCopyEmail();

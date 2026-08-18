@@ -6,6 +6,13 @@
 
     <title>Rayed | Computer Science Student</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="styles.css" />
   </head>
 
@@ -33,9 +40,11 @@
       <section id="hero">
         <div class="hero-content">
           <div class="hero-text">
-            <h1>Hi, I'm Rayed.</h1>
+            <span class="eyebrow">Computer Science Student</span>
 
-            <h2>Computer Science Student</h2>
+            <h1>Building things,<br />one <span class="highlight">problem</span> at a time.</h1>
+
+            <h2>B.Tech CSE, PES University</h2>
 
             <p>
               I build things with code, learn by building, and enjoy solving
@@ -43,7 +52,7 @@
             </p>
 
             <div class="hero-buttons">
-              <a href="#projects" class="btn btn-primary"> View my projects </a>
+              <a href="#projects" class="btn btn-primary">View my projects</a>
 
               <a
                 href="https://github.com/Rayed2874"
@@ -56,118 +65,142 @@
             </div>
           </div>
 
-          <div class="terminal-card">
-            <p><span>&gt; whoami</span><br />Rayed</p>
+          <div class="profile-card">
+            <div class="profile-card-header">
+              <div class="profile-avatar">MR</div>
+              <div>
+                <h3>Rayed</h3>
+                <span>Computer Science Student</span>
+              </div>
+            </div>
 
-            <p><span>&gt; education</span><br />B.Tech CSE</p>
+            <div class="profile-rows">
+              <div class="profile-row">
+                <span class="label">Education</span>
+                <span class="value">B.Tech CSE</span>
+              </div>
 
-            <p><span>&gt; currently_learning</span><br />JavaScript</p>
+              <div class="profile-row">
+                <span class="label">University</span>
+                <span class="value">PES University</span>
+              </div>
 
-            <p><span>&gt; status</span><br />Building...</p>
+              <div class="profile-row">
+                <span class="label">Currently learning</span>
+                <span class="value">JavaScript</span>
+              </div>
+            </div>
+
+            <div class="profile-status">
+              <span class="status-dot"></span>
+              Open to opportunities
+            </div>
           </div>
         </div>
       </section>
 
       <!-- About -->
       <section id="about">
-        <section id="about">
-          <div class="section-heading">
-            <h2>About Me</h2>
+        <div class="section-heading">
+          <span class="eyebrow">Who I am</span>
+          <h2>About Me</h2>
+          <div class="heading-bar"></div>
+        </div>
+
+        <div class="about-content">
+          <div class="about-text">
+            <p>
+              I'm a Computer Science student interested in software
+              development and building things with code. I'm currently focused
+              on strengthening my programming fundamentals and learning modern
+              web development.
+            </p>
           </div>
 
-          <div class="about-content">
-            <div class="about-text">
-              <p>
-                I'm a Computer Science student interested in software
-                development and building things with code. I'm currently focused
-                on strengthening my programming fundamentals and learning modern
-                web development.
-              </p>
+          <div class="about-info">
+            <div class="info-card">
+              <span>Education</span>
+              <p>B.Tech CSE</p>
             </div>
 
-            <div class="about-info">
-              <div class="info-card">
-                <span>Education</span>
-                <p>B.Tech CSE</p>
-              </div>
+            <div class="info-card">
+              <span>University</span>
+              <p>PES University</p>
+            </div>
 
-              <div class="info-card">
-                <span>University</span>
-                <p>PES University</p>
-              </div>
-
-              <div class="info-card">
-                <span>Current Focus</span>
-                <p>Web Development</p>
-              </div>
+            <div class="info-card">
+              <span>Current Focus</span>
+              <p>Web Development</p>
             </div>
           </div>
-        </section>
+        </div>
       </section>
 
       <!-- Skills -->
       <section id="skills">
-        <section id="skills">
-          <div class="section-heading">
-            <h2>Skills</h2>
-          </div>
+        <div class="section-heading">
+          <span class="eyebrow">What I work with</span>
+          <h2>Skills</h2>
+          <div class="heading-bar"></div>
+        </div>
 
-          <div class="skills-content">
-            <div class="skill-category">
-              <h3>Programming</h3>
+        <div class="skills-content">
+          <div class="skill-category">
+            <h3>Programming</h3>
 
-              <div class="skill-list">
-                <div class="skill-card">C</div>
-                <div class="skill-card">C++</div>
-                <div class="skill-card">Python</div>
-              </div>
-            </div>
-
-            <div class="skill-category">
-              <h3>Web Development</h3>
-
-              <div class="skill-list">
-                <div class="skill-card">HTML</div>
-                <div class="skill-card">CSS</div>
-                <div class="skill-card">JavaScript</div>
-              </div>
-            </div>
-
-            <div class="skill-category">
-              <h3>Tools</h3>
-
-              <div class="skill-list">
-                <div class="skill-card">Git</div>
-                <div class="skill-card">GitHub</div>
-                <div class="skill-card">VS Code</div>
-              </div>
+            <div class="skill-list">
+              <div class="skill-card">C</div>
+              <div class="skill-card">C++</div>
+              <div class="skill-card">Python</div>
             </div>
           </div>
-        </section>
+
+          <div class="skill-category">
+            <h3>Web Development</h3>
+
+            <div class="skill-list">
+              <div class="skill-card">HTML</div>
+              <div class="skill-card">CSS</div>
+              <div class="skill-card">JavaScript</div>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3>Tools</h3>
+
+            <div class="skill-list">
+              <div class="skill-card">Git</div>
+              <div class="skill-card">GitHub</div>
+              <div class="skill-card">VS Code</div>
+            </div>
+          </div>
+        </div>
       </section>
 
       <!-- Projects -->
       <section id="projects">
-        <section id="projects">
-          <div class="section-heading">
-            <h2>Projects</h2>
-          </div>
+        <div class="section-heading">
+          <span class="eyebrow">Selected work</span>
+          <h2>Projects</h2>
+          <div class="heading-bar"></div>
+        </div>
 
-          <div class="project-filters">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="web">Web</button>
-            <button class="filter-btn" data-filter="python">Python</button>
-            <button class="filter-btn" data-filter="cpp">C/C++</button>
-          </div>
+        <div class="project-filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="web">Web</button>
+          <button class="filter-btn" data-filter="python">Python</button>
+          <button class="filter-btn" data-filter="cpp">C/C++</button>
+        </div>
 
-          <div class="projects-grid"></div>
-        </section>
+        <div class="projects-grid"></div>
       </section>
 
       <!-- Practice Projects -->
       <section id="practice-projects">
         <div class="section-heading">
+          <span class="eyebrow">Learning in public</span>
           <h2>Practice Projects</h2>
+          <div class="heading-bar"></div>
         </div>
 
         <p class="practice-intro">
@@ -186,68 +219,68 @@
 
       <!-- Blog -->
       <section id="blog">
-        <section id="blog">
-          <div class="section-heading">
-            <h2>Blog</h2>
-          </div>
+        <div class="section-heading">
+          <span class="eyebrow">Notes &amp; writing</span>
+          <h2>Blog</h2>
+          <div class="heading-bar"></div>
+        </div>
 
-          <div class="blog-grid"></div>
-        </section>
+        <div class="blog-grid"></div>
       </section>
 
       <!-- Contact -->
       <section id="contact">
-        <section id="contact">
-          <div class="section-heading">
-            <h2>Contact</h2>
+        <div class="section-heading">
+          <span class="eyebrow">Get in touch</span>
+          <h2>Contact</h2>
+          <div class="heading-bar"></div>
+        </div>
+
+        <div class="contact-content">
+          <div class="contact-text">
+            <h3>Let's build something.</h3>
+
+            <p>
+              I'm always interested in learning, building projects, and
+              connecting with people in tech.
+            </p>
+
+            <a href="mailto:mrayed1308@gmail.com" class="btn btn-primary">
+              Get In Touch
+            </a>
           </div>
 
-          <div class="contact-content">
-            <div class="contact-text">
-              <h3>Let's build something.</h3>
+          <div class="contact-links">
+            <a
+              href="https://github.com/Rayed2874"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </a>
 
-              <p>
-                I'm always interested in learning, building projects, and
-                connecting with people in tech.
-              </p>
+            <a
+              href="https://www.linkedin.com/in/mohammed-rayed-19a585382/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
 
-              <a href="mailto:mrayed1308@gmail.com" class="btn btn-primary">
-                Get In Touch
-              </a>
-            </div>
+            <div class="contact-email">
+              <span id="email-address">mrayed1308@gmail.com</span>
 
-            <div class="contact-links">
-              <a
-                href="https://github.com/Rayed2874"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                GitHub
-              </a>
-
-              <a
-                href="https://www.linkedin.com/in/mohammed-rayed-19a585382/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                LinkedIn
-              </a>
-
-              <div class="contact-email">
-                <span id="email-address"> mrayed1308@gmail.com </span>
-
-                <button id="copy-email" class="btn btn-secondary">
-                  Copy Email
-                </button>
-              </div>
+              <button id="copy-email" class="btn btn-secondary">
+                Copy Email
+              </button>
             </div>
           </div>
-        </section>
+        </div>
       </section>
     </main>
 
     <footer>
-      <p>© 2026 Rayed. Built with HTML, CSS & JavaScript.</p>
+      <p>© 2026 Rayed. Built with HTML, CSS &amp; JavaScript.</p>
     </footer>
 
     <script src="data.js"></script>
